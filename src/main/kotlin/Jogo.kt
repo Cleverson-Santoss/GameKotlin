@@ -1,9 +1,7 @@
 package org.example
 
-class Jogo {
+class Jogo(val titulo:String, val capa:String) {
     // Ao declarar como var, posteriormente o valor pode ser alterado
-    var titulo = ""
-    var capa = ""
     // Ao declarar como val, posteriormente o valor nao pode ser alterado, somente no local onde foi declarado
     val descricao = ""
 

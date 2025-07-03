@@ -1,5 +1,6 @@
 package org.example
 
+import com.google.gson.Gson
 import java.net.URI
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
@@ -21,8 +22,10 @@ fun main() {
     val json = response.body()
     println(json)
 
-    //Forma de instanciar um objeto de acordo com o construtor criado na classe
-    val meuJogo = Jogo("Batman: Arkham Asylum Game of the Year Edition", "https:\\\\/\\\\/cdn.cloudflare.steamstatic.com\\\\/steam\\\\/apps\\\\/35140\\\\/capsule_sm_120.jpg?t=1681938587")
+    //Instanciando a biblioteca Gson
+    val gson = Gson()
+    //Trazendo os dados do Json da Api para a classe infoJogo, a classe infoJogo é que vai transformar os dados para a classe Jogo
+    val meuJogo = gson.fromJson(json, infoJogo::class.java)
 
     println(meuJogo)
 }
